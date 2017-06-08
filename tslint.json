@@ -1,0 +1,26 @@
+{
+  "defaultSeverity": "error",
+  "extends": [
+    "tslint:all",
+    "tslint-react"
+  ],
+  "jsRules": {},
+  "rules": {
+    "no-default-export": false,  // tslint's rationale for this doesn't hold for single export modules
+    "variable-name": false,  // react components must start with a capital
+    "no-unsafe-any": false,  // jsx triggers this
+    "completed-docs": false,  // commenting should not be mandatory
+    "no-any": false,  // unsure how to specify type for react components?
+    "typedef": [
+      true,
+      "call-signature",
+      "arrow-call-signature",
+      "parameter",
+      "arrow-parameter",
+      "property-declaration",
+      // "variable-declaration",  // allow type inference
+      "member-variable-declaration"
+    ]
+  },
+  "rulesDirectory": []
+}
