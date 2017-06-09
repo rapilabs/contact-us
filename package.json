@@ -7,6 +7,7 @@
     "lint": "tslint --project . --format stylish 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
+    "autobind-decorator": "1.4.1",
     "react": "15.5.4",
     "react-dom": "15.5.4",
     "react-redux": "5.0.5",

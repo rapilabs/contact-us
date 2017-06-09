@@ -1,11 +1,25 @@
-import { ActionType } from "./actions";
+import { Action } from "redux";
+import { CONTACT_US, IContact, IContactAction } from "./actions";
 
-const initialState: object = {};
+export interface IState {
+  readonly contact?: IContact;
+}
 
-export default (state: object = initialState, action: ActionType): object => {
-  switch (action) {
-    case ActionType.CONTACT_US:
-      return state;
+const initialState: IState = {
+  contact: undefined,
+};
+
+export default (state: IState = initialState, action: Action): IState => {
+  switch (action.type) {
+    case CONTACT_US:
+      return {
+        ...state,
+        contact: {
+          name: (action as IContactAction).name,
+          email: (action as IContactAction).email,
+          message: (action as IContactAction).message,
+        },
+      };
 
     default:
       return state;
