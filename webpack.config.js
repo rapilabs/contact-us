@@ -40,6 +40,9 @@ module.exports = {
     contentBase: __dirname + '/public',
     hot: true,
     publicPath: '/js/',
+    host: process.env.HOST || '0.0.0.0',
+    port: process.env.PORT || 8080,
+    disableHostCheck: true,
   },
   plugins: [
     new webpack.NamedModulesPlugin(),
