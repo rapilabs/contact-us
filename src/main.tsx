@@ -8,6 +8,8 @@ import App from "./components/App";
 
 import store from "./store";
 
+import "./styles/main.scss";  // tslint:disable-line:no-import-side-effect
+
 const render = (Component: any): void => {
   ReactDOM.render(
     <AppContainer>

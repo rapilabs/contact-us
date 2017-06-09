@@ -52,10 +52,10 @@ class ContactUs extends Component<IProps, undefined> {
   private renderForm(): JSX.Element {
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type="text" name="theName" placeholder="Your name" />
-        <input type="email" name="email" placeholder="Your email address" />
-        <textarea name="message" placeholder="Your message" />
-        <button>Send</button>
+        <input type="text" name="theName" placeholder="Your name" className="form-control form-group" />
+        <input type="email" name="email" placeholder="Your email address" className="form-control form-group" />
+        <textarea name="message" placeholder="Your message" className="form-control form-group" />
+        <button className="btn btn-primary">Send</button>
       </form>
     );
   }

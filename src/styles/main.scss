@@ -1,0 +1,8 @@
+@import "variables.scss";
+
+$icon-font-path: "~bootstrap/fonts/";
+@import "~bootstrap/scss/bootstrap";
+
+#root {
+  margin-top: 2 * $spacer;
+}
