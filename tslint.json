@@ -28,7 +28,8 @@
       // "variable-declaration",  // allow type inference
       "member-variable-declaration"
     ],
-    "no-unbound-method": false  // i use @autobind
+    "no-unbound-method": false,  // i use @autobind
+    "max-classes-per-file": false  // this is just a demo
   },
   "rulesDirectory": []
 }
