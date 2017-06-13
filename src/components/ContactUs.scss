@@ -1,0 +1,14 @@
+@import "../styles/variables.scss";
+
+.ContactUs__heading {
+  color: $brand-primary;
+  margin-bottom: 2 * $spacer;
+}
+
+.ContactUs__form {
+  width: 600px;
+}
+
+.ContactUs__form-message {
+  height: 12 * $spacer;
+}

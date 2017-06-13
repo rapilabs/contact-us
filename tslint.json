@@ -29,7 +29,8 @@
       "member-variable-declaration"
     ],
     "no-unbound-method": false,  // i use @autobind
-    "max-classes-per-file": false  // this is just a demo
+    "max-classes-per-file": false,  // this is just a demo
+    "no-import-side-effect": false  // allow importing sass
   },
   "rulesDirectory": []
 }

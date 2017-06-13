@@ -9,6 +9,8 @@ import { Dispatch } from "redux";
 import { contactUs, IContact, IContactAction } from "../actions";
 import { IState as IContactUsState } from "../reducer";
 
+import "./ContactUs.scss";
+
 class FormField {
   public name: string;
   public value: string;
@@ -46,8 +48,8 @@ class ContactUs extends Component<IProps, IState> {
       : this.renderForm();
 
     return (
-      <div>
-        <h1>Contact Us</h1>
+      <div className="ContactUs">
+        <h1 className="ContactUs__heading">Contact Us</h1>
         {contents}
       </div>
     );
@@ -107,7 +109,7 @@ class ContactUs extends Component<IProps, IState> {
     });
 
     return (
-      <form onSubmit={this.handleSubmit} noValidate={true}>
+      <form onSubmit={this.handleSubmit} noValidate={true} className="ContactUs__form">
         <div className={nameClassnames}>
           <input
             type="input"
@@ -137,7 +139,7 @@ class ContactUs extends Component<IProps, IState> {
         <textarea
           name="message"
           placeholder="Your message"
-          className="form-control form-group"
+          className="form-control form-group ContactUs__form-message"
           value={this.state.message.value}
           onChange={this.handleChange}
         />
