@@ -57,34 +57,21 @@ class ContactUs extends Component<IProps, IState> {
 
   @autobind
   private handleInvalid(e: InvalidEvent<HTMLInputElement>): void {
-    const newState = {};
-    (newState as any)[e.currentTarget.name] = {
-      ...(this.state as any)[e.currentTarget.name],
-      errorMsg: e.currentTarget.validationMessage,
-    };
-    this.setState(newState);
+    (this.state as any)[e.currentTarget.name].errorMsg = e.currentTarget.validationMessage;
+    this.forceUpdate();
   }
 
   @autobind
   private handleChange(e: ChangeEvent<HTMLInputElement & HTMLTextAreaElement>): void {
-    const newState = {};
-    (newState as any)[e.currentTarget.name] = new FormField(
-      e.currentTarget.name,
-      e.currentTarget.value,
-      (this.state as any)[e.currentTarget.name].errorMsg,  // Keep the old message around
-    );
-    this.setState(newState);
+    (this.state as any)[e.currentTarget.name].value = e.currentTarget.value;
+    this.forceUpdate();
   }
 
   @autobind
   private handleBlur(e: FocusEvent<HTMLInputElement & HTMLTextAreaElement>): void {
     if (e.currentTarget.checkValidity()) {
-      const newState = {};
-      (newState as any)[e.currentTarget.name] = {
-        ...(this.state as any)[e.currentTarget.name],
-        errorMsg: "",
-      };
-      this.setState(newState);
+      (this.state as any)[e.currentTarget.name].errorMsg = "";
+      this.forceUpdate();
     }
   }
 
