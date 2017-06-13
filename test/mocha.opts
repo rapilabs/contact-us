@@ -1,0 +1,7 @@
+--compilers ts:ts-node/register,tsx:ts-node/register
+--require source-map-support/register
+--require jsdom-global/register
+--require ignore-styles
+--full-trace
+--bail
+test/**/*-test.ts*
