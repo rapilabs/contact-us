@@ -22,8 +22,8 @@ class FormField {
 }
 
 interface IProps {
-  contact?: IContact;
-  dispatch?: Dispatch<IContactAction>;
+  readonly contact?: IContact;
+  readonly dispatch?: Dispatch<IContactAction>;
 }
 
 interface IState {
