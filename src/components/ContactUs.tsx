@@ -2,7 +2,7 @@ import * as React from "react";
 
 import * as autobind from "autobind-decorator";
 import * as classNames from "classnames";
-import { ChangeEvent, Component, FormEvent, InvalidEvent } from "react";
+import { ChangeEvent, Component, FocusEvent, FormEvent, InvalidEvent } from "react";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
 
@@ -71,9 +71,21 @@ class ContactUs extends Component<IProps, IState> {
     (newState as any)[e.currentTarget.name] = new FormField(
       e.currentTarget.name,
       e.currentTarget.value,
-      e.currentTarget.validationMessage,
+      (this.state as any)[e.currentTarget.name].errorMsg,  // Keep the old message around
     );
     this.setState(newState);
+  }
+
+  @autobind
+  private handleBlur(e: FocusEvent<HTMLInputElement & HTMLTextAreaElement>): void {
+    if (e.currentTarget.checkValidity()) {
+      const newState = {};
+      (newState as any)[e.currentTarget.name] = {
+        ...(this.state as any)[e.currentTarget.name],
+        errorMsg: "",
+      };
+      this.setState(newState);
+    }
   }
 
   @autobind
@@ -120,6 +132,7 @@ class ContactUs extends Component<IProps, IState> {
             value={this.state.contactName.value}
             onChange={this.handleChange}
             onInvalid={this.handleInvalid}
+            onBlur={this.handleBlur}
           />
           <div className="form-control-feedback">{this.state.contactName.errorMsg}</div>
          </div>
@@ -133,6 +146,7 @@ class ContactUs extends Component<IProps, IState> {
             value={this.state.email.value}
             onChange={this.handleChange}
             onInvalid={this.handleInvalid}
+            onBlur={this.handleBlur}
           />
           <div className="form-control-feedback">{this.state.email.errorMsg}</div>
         </div>
